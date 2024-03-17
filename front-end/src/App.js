@@ -40,11 +40,11 @@ function App() {
       results: [
         {
           tuition: '$30,000',
-          location: 'Example City, Example State',
+          location: 'State College, Pennsylvania',
           ranking: 'Top 50',
           minimumGPA: '3.5',
           costOfLiving: '$45,000',
-          nearestAirport: 'Example Airport',
+          nearestAirport: 'State College Airport (SCE)',
           walkScore: '75'
         },
         {
@@ -237,7 +237,7 @@ function App() {
             <h2>Major: {results.major}</h2>
             {results.results.map((result, index) => (
               <div key={index} className="result-section">
-                <h3>Collapsible Section {index + 1}</h3>
+                <h3>Pennsylvania State University </h3>
                 <ul>
                   <li>Tuition: {result.tuition}</li>
                   <li>Location: {result.location}</li>
