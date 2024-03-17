@@ -39,31 +39,31 @@ function App() {
       major: formData.major,
       results: [
         {
-          tuition: '$30,000',
+          tuition: '$30,000/year',
           location: 'State College, Pennsylvania',
           ranking: 'Top 50',
-          minimumGPA: '3.5',
+          averageGPA: '3.5',
           costOfLiving: '$45,000',
-          nearestAirport: 'State College Airport (SCE)',
-          walkScore: '75'
+          nearestAirport: 'State College Airport (SCE) (5 miles)',
+          walkScore: '75/100'
         },
         {
-          tuition: '$25,000',
-          location: 'Another City, Another State',
-          ranking: 'Top 100',
-          minimumGPA: '3.0',
-          costOfLiving: '$40,000',
-          nearestAirport: 'Another Airport',
-          walkScore: '80'
+          tuition: '$47,860/year',
+          location: 'Urbana, IL',
+          ranking: 'Top 50',
+          AverageGPA: '3.7-4.0',
+          costOfLiving: '$11,978',
+          nearestAirport: 'Champaign Airport (CMI) (5miles) ',
+          walkScore: ' 72.3/100'
         },
         {
-          tuition: '$35,000',
-          location: 'Yet Another City, Yet Another State',
-          ranking: 'Top 200',
-          minimumGPA: '2.5',
-          costOfLiving: '$50,000',
-          nearestAirport: 'Yet Another Airport',
-          walkScore: '70'
+          tuition: '$45,954/year',
+          location: 'West Lafayette, Indiana',
+          ranking: 'Top 50',
+          averageGPA: '3.74',
+          costOfLiving: '$15,276',
+          nearestAirport: 'Indianapolis Airport (IND) (59.7 miles)',
+          walkScore: '51/100'
         }
         // Add more result objects as needed
       ]
