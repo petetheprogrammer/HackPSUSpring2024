@@ -69,3 +69,7 @@ button:hover {
 }
 
 /* Add more specific styling as needed */
+
+Select {
+  min-width: 50%;
+}

@@ -31,6 +31,8 @@ function App() {
 
   const majors = ['Biology', 'Computer Science', 'Mechanical Engineering', 'Mathematics','Physics', 'Electrical Engineering'];
   const [major, setMajor] = useState('');
+  const [country, setCountry] = useState('');
+  const [currency, setCurrency] = useState('');
 
   const handleNext = () => {
     setStep(step + 1);
@@ -47,6 +49,14 @@ function App() {
 
   const handleMajorChange = (e) => {
     setMajor(e.target);
+  };
+
+  const handleCountryChange = (e) => {
+    setCountry(e.target);
+  };
+
+  const handleCurrencyChange = (e) => {
+    setCurrency(e.target);
   };
 
   const handleSubmit = (e) => {
@@ -145,24 +155,25 @@ function App() {
                     {majors.map((major, index) => <MenuItem value={major} onChange={handleMajorChange}>{major}</MenuItem>)}
                   </Select>
                 </FormControl>
-                {/* <select name="major" value={formData.major} onChange={handleChange}>
-                  <option value="">Select Major</option>
-                   (
-                    <option key={index} value={major}>{major}</option>
-                  )
-                </select> */}
               </article>
             )}
             {step === 2 && (
               <article>
                 <h2>What are your school grades?</h2>
-                <select name="country" value={formData.country} onChange={handleChange}>
-                  <option value="">Select Country</option>
-                  <option value="canada">Canada</option>
-                  <option value="india">India</option>
-                  <option value="thailand">Thailand</option>
-                </select>
-                <input type="number" name="gpa" value={formData.gpa} onChange={handleChange} />
+                <FormControl>
+                  <InputLabel id="demo-simple-select-label">Country</InputLabel>
+                  <Select
+                    labelId="demo-simple-select-label"
+                    id="demo-simple-select"
+                    label="Country"
+                    onChange={handleChange}
+                  >
+                    <MenuItem value="Canada" onChange={handleCountryChange}>Canada</MenuItem>
+                    <MenuItem value="India" onChange={handleCountryChange}>India</MenuItem>
+                    <MenuItem value="Thailand" onChange={handleCountryChange}>Thailand</MenuItem>
+                  </Select>
+                </FormControl>
+                <TextField id="outlined-basic" variant="outlined" type="number" name="gpa" value={formData.gpa} onChange={handleChange} />
                 {formData.country && (
                   <p>Your equivalent US GPA is: {calculateEquivalentGPA()}</p>
                 )}
@@ -171,13 +182,28 @@ function App() {
             {step === 3 && (
               <article>
                 <h2>Tuition budget</h2>
-                <select name="currency" type='number' value={formData.currency} onChange={handleChange}>
+                <FormControl>
+                  <InputLabel id="demo-simple-select-label">Currency</InputLabel>
+                  <Select
+                    labelId="demo-simple-select-label"
+                    id="demo-simple-select"
+                    label="Country"
+                    onChange={handleChange}
+                    name="currency"
+                  >
+                    <MenuItem value="" onChange={handleCurrencyChange}>Please choose...</MenuItem>
+                    <MenuItem value="thai_baht" onChange={handleCurrencyChange}>Thai Baht (฿)</MenuItem>
+                    <MenuItem value="canadian_dollars" onChange={handleCurrencyChange}>Canadian Dollars ($)</MenuItem>
+                    <MenuItem value="indian_rupee" onChange={handleCurrencyChange}>Indian Rupee (₹)</MenuItem>
+                  </Select>
+                </FormControl>
+                {/* <select name="currency" type='number' value={formData.currency} onChange={handleChange}>
                   <option value="">Select Currency</option>
                   <option value="thai_baht">Thai Baht (฿)</option>
                   <option value="canadian_dollars">Canadian Dollars ($)</option>
                   <option value="indian_rupee">Indian Rupee (₹)</option>
-                </select>
-                <input type="number" name="tuition" value={formData.tuition} onChange={handleChange} />
+                </select> */}
+                <TextField id="outlined-basic" variant="outlined" type="number" name="tuition" value={formData.tuition} onChange={handleChange} />
                 {formData.currency && (
                   <p>This is the equivalent of USD ${calculateEquivalentTuition()}</p>
                 )}
@@ -278,8 +304,8 @@ function App() {
                 aria-controls="panel1-content"
                 id="panel1-header"
               >
-                penn state
-                {/* {results.school} */}
+                {/* penn state */}
+                {results.school}
               </AccordionSummary>
               <AccordionDetails>
               <ul>
