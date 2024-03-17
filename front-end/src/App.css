@@ -1,3 +1,7 @@
+*{
+  box-sizing: border-box;
+}
+
 li {
   list-style-type: none;
 }
@@ -8,20 +12,16 @@ body {
   font-family: Arial, sans-serif;
   background-color: #ffffff; /* Background color */
   display: flex;
-  /* flex-direction: column; */
-  /* justify-content: center; */
-  /* align-items: center; */
   min-height: 100vh; /* Ensure full viewport height */
 }
 
 .header {
   margin-left: 10vw; /* Left-aligned with 10% vw margin */
-  color: #003f87; /* Primary color from logo */
 }
 
 .footer {
   width: 100%;
-  background-color: #0c2340; /* Secondary color from logo */
+  background-color: #2cace4; /* Secondary color from logo */
   color: #ffffff; /* Footer text color */
   text-align: center;
   font-size: 0.8rem; /* Small text size */
@@ -52,7 +52,7 @@ body {
 }
 
 button {
-  background-color: #003f87; /* Green color from logo */
+  background-color: #c7d835; /* Green color from logo */
   color: #ffffff; /* Text color for buttons */
   padding: 0.5rem 1rem;
   border: none;
@@ -61,7 +61,7 @@ button {
 }
 
 button:hover {
-  background-color: #002b5a; /* Darker shade of green on hover */
+  background-color: #9ccc63; /* Darker shade of green on hover */
 }
 
 /* Add more specific styling as needed */

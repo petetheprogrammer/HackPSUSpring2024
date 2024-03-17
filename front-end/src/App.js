@@ -71,7 +71,7 @@ function App() {
         {!submitted ? (
         <form onSubmit={handleSubmit}>
         {step === 1 && (
-          <div>
+          <article>
             <h2>What major?</h2>
             <select name="major" value={formData.major} onChange={handleChange}>
               <option value="">Select Major</option>
@@ -79,23 +79,23 @@ function App() {
                 <option key={index} value={major}>{major}</option>
               ))}
             </select>
-          </div>
+          </article>
         )}
         {step === 2 && (
-          <div>
+          <article>
             <h2>What is the highest GPA you can expect?</h2>
             <p>Convert your local grade to GPA using this website</p>
             <input type="number" name="gpa" value={formData.gpa} onChange={handleChange} />
-          </div>
+          </article>
         )}
         {step === 3 && (
-          <div>
+          <article>
             <h2>Tuition budget</h2>
             <input type="text" name="tuition" value={formData.tuition} onChange={handleChange} placeholder="USD $" />
-          </div>
+          </article>
         )}
         {step === 4 && (
-          <div>
+          <article>
             <h2>Desired state?</h2>
             <select name="state" value={formData.state} onChange={handleChange}>
               <option value="">Select State</option>
@@ -103,16 +103,16 @@ function App() {
                 <option key={index} value={state}>{state}</option>
               ))}
             </select>
-          </div>
+          </article>
         )}
-        <div className="buttons">
+        <article className="buttons">
           {step > 1 && <button type="button" onClick={handlePrevious}>Previous</button>}
           {step < 4 && <button type="button" onClick={handleNext}>Next</button>}
           {step === 4 && <button type='submit' onClick={handleSubmit}>Submit</button>}
-        </div>
+        </article>
       </form>
         ) : (
-          <div className="results">
+          <section className="results">
             <h1>Your Results</h1>
             <h2>Major: {results.major}</h2>
             {results.results.map((result, index) => (
@@ -129,7 +129,7 @@ function App() {
                 </ul>
               </div>
             ))}
-          </div>
+          </section>
         )}
       </div>
       <footer className='footer'>
