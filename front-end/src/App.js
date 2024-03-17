@@ -88,11 +88,20 @@ function App() {
             <input type="number" name="gpa" value={formData.gpa} onChange={handleChange} />
           </article>
         )}
+        
         {step === 3 && (
           <article>
-            <h2>Tuition budget</h2>
-            <input type="text" name="tuition" value={formData.tuition} onChange={handleChange} placeholder="USD $" />
-          </article>
+          <h2>Tuition Budget</h2>
+          <select name="tuition" onChange={handleChange}>
+              <option value="5-10k">5,000 - 10,000 USD</option>
+              <option value="10-20k">10,000 - 20,000 USD</option>
+              <option value="20-30k">20,000 - 30,000 USD</option>
+              <option value="30-40k">30,000 - 40,000 USD</option>
+              <option value="40-50k">40,000 - 50,000 USD</option>
+              <option value="50k+">Over 50,000 USD</option>
+          </select>
+      </article>
+      
         )}
         {step === 4 && (
           <article>
