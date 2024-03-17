@@ -28,7 +28,6 @@ body {
   padding: 0.5rem 0; /* Padding for footer content */
   position: absolute;
   bottom: 0;
-  width: 100%;
 }
 
 .form-container {
