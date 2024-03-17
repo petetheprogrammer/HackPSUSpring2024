@@ -97,7 +97,7 @@ function App() {
           costOfLiving: '$15,276',
           nearestAirport: 'Indianapolis Airport (IND) (59.7 miles)',
           walkScore: '51/100',
-          imgURL: 'https://banner2.cleanpng.com/20180725/ztq/kisspng-purdue-university-purdue-boilermakers-football-pur-5b585acb4b3bb5.5046281115325170673082.jpg'
+          imgURL: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Purdue_Boilermakers_logo.svg/1024px-Purdue_Boilermakers_logo.svg.png'
         }
         // Add more result objects as needed
       ]
