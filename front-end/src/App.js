@@ -1,6 +1,22 @@
 import React, { useState } from 'react';
 import './App.css';
 
+// thank you mui for your pre-styled components
+import TextField from '@mui/material/TextField';
+import Box from '@mui/material/Box';
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import Select, { SelectChangeEvent } from '@mui/material/Select';
+import Button from '@mui/material/Button';
+import ButtonGroup from '@mui/material/ButtonGroup';
+
+import Accordion from '@mui/material/Accordion';
+import AccordionDetails from '@mui/material/AccordionDetails';
+import AccordionSummary from '@mui/material/AccordionSummary';
+// import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+
+
 function App() {
   const [step, setStep] = useState(1);
   const [formData, setFormData] = useState({
@@ -14,6 +30,7 @@ function App() {
   const [results, setResults] = useState(null);
 
   const majors = ['Biology', 'Computer Science', 'Mechanical Engineering'];
+  const [major, setMajor] = useState('');
 
   const handleNext = () => {
     setStep(step + 1);
@@ -28,6 +45,10 @@ function App() {
     setFormData({ ...formData, [name]: value });
   };
 
+  const handleMajorChange = (e) => {
+    setMajor(e.target);
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     // Here you can handle the submission of form data
@@ -39,15 +60,18 @@ function App() {
       major: formData.major,
       results: [
         {
+          school: 'Pennsylvania State University',
           tuition: '$30,000',
           location: 'State College, Pennsylvania',
           ranking: 'Top 50',
           minimumGPA: '3.5',
           costOfLiving: '$45,000',
           nearestAirport: 'State College Airport (SCE)',
-          walkScore: '75'
+          walkScore: '75',
+          notes: "bustling university in very rural area; your cell phone coverage may not be guaranteed if driving in"
         },
         {
+          school: "fdhajkl",
           tuition: '$25,000',
           location: 'Another City, Another State',
           ranking: 'Top 100',
@@ -57,6 +81,7 @@ function App() {
           walkScore: '80'
         },
         {
+          school: "fdhajkl",
           tuition: '$35,000',
           location: 'Yet Another City, Yet Another State',
           ranking: 'Top 200',
@@ -111,12 +136,24 @@ function App() {
             {step === 1 && (
               <article>
                 <h2>What do you want your major to be?</h2>
-                <select name="major" value={formData.major} onChange={handleChange}>
+                <FormControl fullWidth>
+                  <InputLabel id="demo-simple-select-label">Major</InputLabel>
+                  <Select
+                    labelId="demo-simple-select-label"
+                    id="demo-simple-select"
+                    // value={formData.major}
+                    label="Major"
+                    onChange={handleChange}
+                  >
+                    {majors.map((major, index) => <MenuItem value={major} onChange={handleMajorChange}>{major}</MenuItem>)}
+                  </Select>
+                </FormControl>
+                {/* <select name="major" value={formData.major} onChange={handleChange}>
                   <option value="">Select Major</option>
-                  {majors.map((major, index) => (
+                   (
                     <option key={index} value={major}>{major}</option>
-                  ))}
-                </select>
+                  )
+                </select> */}
               </article>
             )}
             {step === 2 && (
@@ -226,19 +263,29 @@ function App() {
               </article>
             )}
             <article className="buttons">
-              {step > 1 && <button type="button" onClick={handlePrevious}>Previous</button>}
-              {step < 4 && <button type="button" onClick={handleNext}>Next</button>}
-              {step === 4 && <button type='submit' onClick={handleSubmit}>Submit</button>}
+              <ButtonGroup variant="contained" aria-label="Basic button group">
+                {step > 1 && <Button onClick={handlePrevious}>Previous</Button>}
+                {step < 4 && <Button onClick={handleNext}>Next</Button>}
+                {step === 4 && <Button type='submit' onClick={handleSubmit}>Submit</Button>}
+              </ButtonGroup>
+
             </article>
           </form>
         ) : (
           <section className="results">
             <h1>Your Results</h1>
             <h2>Major: {results.major}</h2>
-            {results.results.map((result, index) => (
-              <div key={index} className="result-section">
-                <h3>Pennsylvania State University </h3>
-                <ul>
+            {results.results.map((result, index) => (<Accordion>
+              <AccordionSummary
+                // expandIcon={<ExpandMoreIcon />}
+                aria-controls="panel1-content"
+                id="panel1-header"
+              >
+                penn state
+                {/* {results.school} */}
+              </AccordionSummary>
+              <AccordionDetails>
+              <ul>
                   <li>Tuition: {result.tuition}</li>
                   <li>Location: {result.location}</li>
                   <li>Ranking: {result.ranking}</li>
@@ -246,9 +293,17 @@ function App() {
                   <li>Cost of Living: {result.costOfLiving}</li>
                   <li>Nearest Airport: {result.nearestAirport}</li>
                   <li>Walk Score: {result.walkScore}</li>
+                  <li>Notes: {result.notes}</li>
                 </ul>
-              </div>
+              </AccordionDetails>
+            </Accordion>
             ))}
+            
+              {/* <div key={index} className="result-section">
+                <h3>Pennsylvania State University </h3>
+
+              </div> */}
+            
           </section>
         )}
       </div>
