@@ -13,7 +13,7 @@ function App() {
   const [submitted, setSubmitted] = useState(false);
   const [results, setResults] = useState(null);
 
-  const majors = ['Biology', 'Computer Science', 'Mechanical Engineering'];
+  const majors = ['Biology', 'Computer Science', 'Mechanical Engineering', 'Mathematics','Physics', 'Electrical Engineering'];
 
   const handleNext = () => {
     setStep(step + 1);
