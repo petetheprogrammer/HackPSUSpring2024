@@ -24,12 +24,12 @@ function App() {
     gpa: '',
     tuition: 0,
     location: '',
-    country: ''
+    // country: ''
   });
   const [submitted, setSubmitted] = useState(false);
   const [results, setResults] = useState(null);
 
-  const majors = ['Biology', 'Computer Science', 'Mechanical Engineering', 'Mathematics','Physics', 'Electrical Engineering'];
+  const majors = ['Biology', 'Computer Science', 'Mechanical Engineering', 'Mathematics', 'Physics', 'Electrical Engineering'];
   const [major, setMajor] = useState('');
   const [country, setCountry] = useState('');
   const [currency, setCurrency] = useState('');
@@ -70,6 +70,7 @@ function App() {
       major: formData.major,
       results: [
         {
+          school: "Pennsylvania State University",
           tuition: '$30,000/year',
           location: 'State College, Pennsylvania',
           ranking: 'Top 50',
@@ -80,6 +81,7 @@ function App() {
           imgURL: 'https://brand.psu.edu/images/backgrounds/veritcal-1-mark_registered.png'
         },
         {
+          school: "University of Illinois at Urbana-Champaign",
           tuition: '$47,860/year',
           location: 'Urbana, IL',
           ranking: 'Top 50',
@@ -90,6 +92,7 @@ function App() {
           imgURL: 'https://marketing.illinois.edu/wp-content/uploads/2021/09/wordmark-orange-background.png'
         },
         {
+          school: "Purdue University, West Lafayette",
           tuition: '$45,954/year',
           location: 'West Lafayette, Indiana',
           ranking: 'Top 50',
@@ -110,13 +113,13 @@ function App() {
     let equivalentGPA = parseFloat(formData.gpa);
     if (!equivalentGPA) return 0;
 
-    if (formData.country === 'canada' || formData.country === 'india') {
+    if (formData.country === 'Canada' || formData.country === 'India') {
       // Assuming a linear scale where 100% is equivalent to 4.0 GPA
       equivalentGPA = (equivalentGPA / 100) * 4.0;
 
       // Ensure the GPA does not exceed 4.0
       equivalentGPA = Math.min(equivalentGPA, 4.0);
-    } else if (formData.country === 'thailand') {
+    } else if (formData.country === 'Thailand') {
       // Assuming Thailand's 4.0 scale is equivalent to the US's
       // Make sure GPA is not more than 4.0
       equivalentGPA = Math.min(equivalentGPA, 4.0);
@@ -176,6 +179,7 @@ function App() {
                     labelId="demo-simple-select-label"
                     id="demo-simple-select"
                     label="Country"
+                    name='country'
                     onChange={handleChange}
                   >
                     <MenuItem value="Canada" onChange={handleCountryChange}>Canada</MenuItem>
@@ -184,7 +188,7 @@ function App() {
                   </Select>
                 </FormControl>
                 <TextField id="outlined-basic" variant="outlined" type="number" name="gpa" value={formData.gpa} onChange={handleChange} />
-                {country && (
+                {formData.country && (
                   <p>Your equivalent US GPA is: {calculateEquivalentGPA()}</p>
                 )}
               </article>
@@ -207,12 +211,6 @@ function App() {
                     <MenuItem value="indian_rupee" onChange={handleCurrencyChange}>Indian Rupee (₹)</MenuItem>
                   </Select>
                 </FormControl>
-                {/* <select name="currency" type='number' value={formData.currency} onChange={handleChange}>
-                  <option value="">Select Currency</option>
-                  <option value="thai_baht">Thai Baht (฿)</option>
-                  <option value="canadian_dollars">Canadian Dollars ($)</option>
-                  <option value="indian_rupee">Indian Rupee (₹)</option>
-                </select> */}
                 <TextField id="outlined-basic" variant="outlined" type="number" name="tuition" value={formData.tuition} onChange={handleChange} />
                 {formData.currency && (
                   <p>This is the equivalent of USD ${calculateEquivalentTuition()}</p>
@@ -254,43 +252,47 @@ function App() {
                 {formData.transit && (
                   <div>
                     <h3>What type of transit?</h3>
-                    <label>
-                      <input type="checkbox" name="personalVehicle" checked={formData.personalVehicle} onChange={handleChange} />
-                      Personal Vehicle
-                    </label>
-                    <label>
-                      <input type="checkbox" name="metropolitanSubway" checked={formData.metropolitanSubway} onChange={handleChange} />
-                      Metropolitan Subway or Light Rail
-                    </label>
-                    <label>
-                      <input type="checkbox" name="metropolitanBus" checked={formData.metropolitanBus} onChange={handleChange} />
-                      Metropolitan Bus
-                    </label>
-                    <label>
-                      <input type="checkbox" name="regionalTrain" checked={formData.regionalTrain} onChange={handleChange} />
-                      Regional Train
-                    </label>
-                    <label>
-                      <input type="checkbox" name="regionalBus" checked={formData.regionalBus} onChange={handleChange} />
-                      Regional Bus
-                    </label>
+                    <div className='too-long'>
+                      <label>
+                        <input type="checkbox" name="personalVehicle" checked={formData.personalVehicle} onChange={handleChange} />
+                        Personal Vehicle
+                      </label>
+                      <label>
+                        <input type="checkbox" name="metropolitanSubway" checked={formData.metropolitanSubway} onChange={handleChange} />
+                        Metropolitan Subway or Light Rail
+                      </label>
+                      <label>
+                        <input type="checkbox" name="metropolitanBus" checked={formData.metropolitanBus} onChange={handleChange} />
+                        Metropolitan Bus
+                      </label>
+                      <label>
+                        <input type="checkbox" name="regionalTrain" checked={formData.regionalTrain} onChange={handleChange} />
+                        Regional Train
+                      </label>
+                      <label>
+                        <input type="checkbox" name="regionalBus" checked={formData.regionalBus} onChange={handleChange} />
+                        Regional Bus
+                      </label>
+                    </div>
                   </div>
                 )}
                 {formData.minorityFriendly && (
                   <div>
                     <h3>How do you measure minority friendliness?</h3>
-                    <label>
-                      <input type="checkbox" name="racialDiversity" checked={formData.racialDiversity} onChange={handleChange} />
-                      Racial Diversity
-                    </label>
-                    <label>
-                      <input type="checkbox" name="internationalStudents" checked={formData.internationalStudents} onChange={handleChange} />
-                      Number of International Students
-                    </label>
-                    <label>
-                      <input type="checkbox" name="variedLanguages" checked={formData.variedLanguages} onChange={handleChange} />
-                      Varied Languages Spoken
-                    </label>
+                    <div className='too-long'>
+                      <label>
+                        <input type="checkbox" name="racialDiversity" checked={formData.racialDiversity} onChange={handleChange} />
+                        Racial Diversity
+                      </label>
+                      <label>
+                        <input type="checkbox" name="internationalStudents" checked={formData.internationalStudents} onChange={handleChange} />
+                        Number of International Students
+                      </label>
+                      <label>
+                        <input type="checkbox" name="variedLanguages" checked={formData.variedLanguages} onChange={handleChange} />
+                        Varied Languages Spoken
+                      </label>
+                    </div>
                   </div>
                 )}
               </article>
@@ -315,10 +317,12 @@ function App() {
                 id="panel1-header"
               >
                 {/* penn state */}
-                {results.school}
+                {console.log("a string", result.school)}
+                {result.school}
               </AccordionSummary>
               <AccordionDetails>
-              <ul>
+                <ul>
+                  
                   <li>Tuition: {result.tuition}</li>
                   <li>Location: {result.location}</li>
                   <li>Ranking: {result.ranking}</li>
@@ -327,23 +331,23 @@ function App() {
                   <li>Nearest Airport: {result.nearestAirport}</li>
                   <li>Walk Score: {result.walkScore}</li>
                   <img src={result.imgURL}></img>
-                  
+
                   <li>Notes: {result.notes}</li>
                 </ul>
               </AccordionDetails>
             </Accordion>
             ))}
-            
-              {/* <div key={index} className="result-section">
+
+            {/* <div key={index} className="result-section">
                 <h3>Pennsylvania State University </h3>
 
               </div> */}
-            
+
           </section>
         )}
       </div>
       <footer className='footer'>
-        
+
       </footer>
     </div>
   );

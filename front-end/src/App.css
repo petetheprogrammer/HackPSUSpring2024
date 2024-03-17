@@ -14,7 +14,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: Arial, sans-serif;
-  background-color: #c0bbbb; /* Background color */
+  /* background-color: #c0bbbb; Background color */
   display: flex;
   min-height: 100vh; /* Ensure full viewport height */
 }
@@ -40,7 +40,7 @@ body {
 }
 
 .form-container {
-  margin-top: 2rem; /* Adjust as needed */
+  margin: 2rem 0 3rem 0; /* Adjust as needed */
   padding: 0 1rem;
   display: flex;
   justify-content: center;
@@ -84,4 +84,14 @@ Select {
 
 img {
   max-width: 200px;
+}
+
+.too-long {
+  flex-wrap: wrap;
+  display: flex;
+  flex-direction: column;
+}
+
+article {
+  margin: 0.5rem 0;
 }
