@@ -70,44 +70,68 @@ function App() {
     const fakeApiResults = {
       major: formData.major,
       results: [
-        {
-          school: "Pennsylvania State University",
-          tuition: '$30,000/year',
-          location: 'State College, Pennsylvania',
-          ranking: 'Top 50',
-          averageGPA: '3.5',
-          costOfLiving: '$45,000',
-          nearestAirport: 'State College Airport (SCE) (5 miles)',
-          walkScore: '75/100',
-          imgURL: 'https://brand.psu.edu/images/backgrounds/veritcal-1-mark_registered.png',
-          notes: 'beautiful campus set in the hills of pennsylvania, bike friendly campus'
-        },
-        {
-          school: "University of Illinois at Urbana-Champaign",
-          tuition: '$47,860/year',
-          location: 'Urbana, IL',
-          ranking: 'Top 50',
-          AverageGPA: '3.7-4.0',
-          costOfLiving: '$11,978',
-          nearestAirport: 'Champaign Airport (CMI) (5miles) ',
-          walkScore: ' 72.3/100',
-          imgURL: 'https://marketing.illinois.edu/wp-content/uploads/2021/09/wordmark-orange-background.png',
-          notes: 'extremely bike friendly campus, great computer science program, low cost of living'
-        },
-        {
-          school: "Purdue University",
-          tuition: '$45,954/year',
-          location: 'West Lafayette, Indiana',
-          ranking: 'Top 50',
-          averageGPA: '3.74',
-          costOfLiving: '$15,276',
-          nearestAirport: 'Indianapolis Airport (IND) (59.7 miles)',
-          walkScore: '51/100',
-          imgURL: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Purdue_Boilermakers_logo.svg/1024px-Purdue_Boilermakers_logo.svg.png',
-          notes: 'moderate cost of lving, cradle of astronauts, great college atmosphere'
-        }
-        // Add more result objects as needed
-      ]
+      {
+        school: "Pennsylvania State University",
+        tuition: '$30,000/year',
+        location: 'State College, Pennsylvania',
+        ranking: 'Top 50',
+        averageGPA: '3.5',
+        costOfLiving: '$45,000',
+        nearestAirport: 'State College Airport (SCE) (5 miles)',
+        walkScore: '75/100',
+        imgURL: 'https://brand.psu.edu/images/backgrounds/veritcal-1-mark_registered.png',
+        notes: 'beautiful campus set in the hills of pennsylvania, bike friendly campus'
+      },
+      {
+        school: "University of Illinois at Urbana-Champaign",
+        tuition: '$47,860/year',
+        location: 'Urbana, IL',
+        ranking: 'Top 50',
+        AverageGPA: '3.7-4.0',
+        costOfLiving: '$11,978',
+        nearestAirport: 'Champaign Airport (CMI) (5miles) ',
+        walkScore: ' 72.3/100',
+        imgURL: 'https://marketing.illinois.edu/wp-content/uploads/2021/09/wordmark-orange-background.png',
+        notes: 'extremely bike friendly campus, great computer science program, low cost of living'
+      },
+      {
+        school: "Purdue University",
+        tuition: '$45,954/year',
+        location: 'West Lafayette, Indiana',
+        ranking: 'Top 50',
+        averageGPA: '3.74',
+        costOfLiving: '$15,276',
+        nearestAirport: 'Indianapolis Airport (IND) (59.7 miles)',
+        walkScore: '51/100',
+        imgURL: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Purdue_Boilermakers_logo.svg/1024px-Purdue_Boilermakers_logo.svg.png',
+        notes: 'moderate cost of living, cradle of astronauts, great college atmosphere'
+      },
+      {
+        school: "University of Pittsburgh",
+        tuition: '$36,000/year',
+        location: 'Pittsburgh, Pennsylvania',
+        ranking: 'Top 100',
+        averageGPA: '3.93-4.37',
+        costOfLiving: '$17,880',
+        nearestAirport: 'Pittsburgh Intl Aiport (PIT) (19.5 miles)',
+        walkScore: '62/100',
+        imgURL: 'https://skyfoundationinc.org/wp-content/uploads/2018/06/University_of_Pittsburgh_LOGO.png',
+        notes: "Walkable city, good public transit, awesome access to airport"
+      },
+      {
+        school: "New York University",
+        tuition: "$60,438",
+        location: "New York, New York",
+        ranking: "35/100",
+        averageGPA: "3.7",
+        costOfLiving: "$24,102",
+        nearestAirport: "New York La Guardia (LGA) (7.3 miles)",
+        walkScore: "88/100",
+        imgURL: 'https://logos-download.com/wp-content/uploads/2021/01/New_York_University_Logo.png',
+        notes: "Expensive, and you get to live in new york city. Enough said."
+      }
+      // Add more result objects as needed
+    ]
     };
     setResults(fakeApiResults);
     setSubmitted(true);
