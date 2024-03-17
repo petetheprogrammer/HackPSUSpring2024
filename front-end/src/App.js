@@ -144,6 +144,7 @@ function App() {
     <div className="App">
       <header className='header'>
         <h1>Placeholder Team Name</h1>
+        <p>Anon(Jeff), Kelly, Mykola, Pete, and Sai for HackPSU 2024</p>
       </header>
 
       <div className="form-container">
@@ -183,7 +184,7 @@ function App() {
                   </Select>
                 </FormControl>
                 <TextField id="outlined-basic" variant="outlined" type="number" name="gpa" value={formData.gpa} onChange={handleChange} />
-                {formData.country && (
+                {country && (
                   <p>Your equivalent US GPA is: {calculateEquivalentGPA()}</p>
                 )}
               </article>
@@ -342,7 +343,7 @@ function App() {
         )}
       </div>
       <footer className='footer'>
-        <p>Anon(Jeff), Kelly, Mykola, Pete, and Sai for HackPSU 2024</p>
+        
       </footer>
     </div>
   );
