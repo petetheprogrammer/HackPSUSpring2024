@@ -45,7 +45,8 @@ function App() {
           averageGPA: '3.5',
           costOfLiving: '$45,000',
           nearestAirport: 'State College Airport (SCE) (5 miles)',
-          walkScore: '75/100'
+          walkScore: '75/100',
+          imgURL: 'https://brand.psu.edu/images/backgrounds/veritcal-1-mark_registered.png'
         },
         {
           tuition: '$47,860/year',
@@ -54,7 +55,8 @@ function App() {
           AverageGPA: '3.7-4.0',
           costOfLiving: '$11,978',
           nearestAirport: 'Champaign Airport (CMI) (5miles) ',
-          walkScore: ' 72.3/100'
+          walkScore: ' 72.3/100',
+          imgURL: 'https://marketing.illinois.edu/wp-content/uploads/2021/09/wordmark-orange-background.png'
         },
         {
           tuition: '$45,954/year',
@@ -63,7 +65,8 @@ function App() {
           averageGPA: '3.74',
           costOfLiving: '$15,276',
           nearestAirport: 'Indianapolis Airport (IND) (59.7 miles)',
-          walkScore: '51/100'
+          walkScore: '51/100',
+          imgURL: 'https://banner2.cleanpng.com/20180725/ztq/kisspng-purdue-university-purdue-boilermakers-football-pur-5b585acb4b3bb5.5046281115325170673082.jpg'
         }
         // Add more result objects as needed
       ]
@@ -73,13 +76,19 @@ function App() {
   };
 
   const calculateEquivalentGPA = () => {
-    let equivalentGPA = 0;
-    if (formData.country === 'canada') {
-      equivalentGPA = formData.gpa * 2;
-    } else if (formData.country === 'india') {
-      equivalentGPA = formData.gpa * 3;
+    let equivalentGPA = parseFloat(formData.gpa);
+    if (!equivalentGPA) return 0;
+
+    if (formData.country === 'canada' || formData.country === 'india') {
+      // Assuming a linear scale where 100% is equivalent to 4.0 GPA
+      equivalentGPA = (equivalentGPA / 100) * 4.0;
+
+      // Ensure the GPA does not exceed 4.0
+      equivalentGPA = Math.min(equivalentGPA, 4.0);
     } else if (formData.country === 'thailand') {
-      equivalentGPA = formData.gpa * 4;
+      // Assuming Thailand's 4.0 scale is equivalent to the US's
+      // Make sure GPA is not more than 4.0
+      equivalentGPA = Math.min(equivalentGPA, 4.0);
     }
     return equivalentGPA;
   };
@@ -247,7 +256,7 @@ function App() {
                   <li>Cost of Living: {result.costOfLiving}</li>
                   <li>Nearest Airport: {result.nearestAirport}</li>
                   <li>Walk Score: {result.walkScore}</li>
-                  <img src="https://brand.psu.edu/images/backgrounds/veritcal-1-mark_registered.png"></img>
+                  <img src={result.imgURL}></img>
                   
                 </ul>
                 
