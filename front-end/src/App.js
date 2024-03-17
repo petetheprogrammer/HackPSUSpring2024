@@ -237,6 +237,7 @@ function App() {
                   <li>Cost of Living: {result.costOfLiving}</li>
                   <li>Nearest Airport: {result.nearestAirport}</li>
                   <li>Walk Score: {result.walkScore}</li>
+                  <img src="https://brand.psu.edu/images/backgrounds/veritcal-1-mark_registered.png"></img>
                 </ul>
               </div>
             ))}
