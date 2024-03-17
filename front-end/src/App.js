@@ -6,8 +6,9 @@ function App() {
   const [formData, setFormData] = useState({
     major: '',
     gpa: '',
-    tuition: '',
-    state: ''
+    tuition: 0,
+    state: '',
+    country: ''
   });
   const [submitted, setSubmitted] = useState(false);
   const [results, setResults] = useState(null);
@@ -62,6 +63,30 @@ function App() {
     setSubmitted(true);
   };
 
+  const calculateEquivalentGPA = () => {
+    let equivalentGPA = 0;
+    if (formData.country === 'canada') {
+      equivalentGPA = formData.gpa * 2;
+    } else if (formData.country === 'india') {
+      equivalentGPA = formData.gpa * 3;
+    } else if (formData.country === 'thailand') {
+      equivalentGPA = formData.gpa * 4;
+    }
+    return equivalentGPA;
+  };
+
+  const calculateEquivalentTuition = () => {
+    let equivalentTuition = formData.tuition;
+    if (formData.currency === 'canadian_dollars') {
+      equivalentTuition *= 0.74;
+    } else if (formData.currency === 'thai_baht') {
+      equivalentTuition /= 35.84;
+    } else if (formData.currency === 'indian_rupee') {
+      equivalentTuition /= 82.89;
+    }
+    return equivalentTuition.toFixed(2);
+  };
+
   return (
     <div className="App">
       <header className='header'>
@@ -72,7 +97,7 @@ function App() {
         <form onSubmit={handleSubmit}>
         {step === 1 && (
           <article>
-            <h2>What major?</h2>
+            <h2>What do you want your major to be?</h2>
             <select name="major" value={formData.major} onChange={handleChange}>
               <option value="">Select Major</option>
               {majors.map((major, index) => (
@@ -83,15 +108,32 @@ function App() {
         )}
         {step === 2 && (
           <article>
-            <h2>What is the highest GPA you can expect?</h2>
-            <p>Convert your local grade to GPA using this website</p>
+            <h2>What are your school grades?</h2>
+            <select name="country" value={formData.country} onChange={handleChange}>
+              <option value="">Select Country</option>
+              <option value="canada">Canada</option>
+              <option value="india">India</option>
+              <option value="thailand">Thailand</option>
+            </select>
             <input type="number" name="gpa" value={formData.gpa} onChange={handleChange} />
+            {formData.country && (
+              <p>Your equivalent US GPA is: {calculateEquivalentGPA()}</p>
+            )}
           </article>
         )}
         {step === 3 && (
           <article>
             <h2>Tuition budget</h2>
-            <input type="text" name="tuition" value={formData.tuition} onChange={handleChange} placeholder="USD $" />
+            <select name="currency" type='number' value={formData.currency} onChange={handleChange}>
+              <option value="">Select Currency</option>
+              <option value="thai_baht">Thai Baht (฿)</option>
+              <option value="canadian_dollars">Canadian Dollars ($)</option>
+              <option value="indian_rupee">Indian Rupee (₹)</option>
+            </select>
+            <input type="text" name="tuition" value={formData.tuition} onChange={handleChange} />
+            {formData.tuition !== 0 && (
+              <p>This is the equivalent of USD ${calculateEquivalentTuition()}</p>
+            )}
           </article>
         )}
         {step === 4 && (
