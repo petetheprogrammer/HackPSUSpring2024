@@ -78,7 +78,8 @@ function App() {
           costOfLiving: '$45,000',
           nearestAirport: 'State College Airport (SCE) (5 miles)',
           walkScore: '75/100',
-          imgURL: 'https://brand.psu.edu/images/backgrounds/veritcal-1-mark_registered.png'
+          imgURL: 'https://brand.psu.edu/images/backgrounds/veritcal-1-mark_registered.png',
+          notes: 'beautiful campus set in the hills of pennsylvania, bike friendly campus'
         },
         {
           school: "University of Illinois at Urbana-Champaign",
@@ -89,10 +90,11 @@ function App() {
           costOfLiving: '$11,978',
           nearestAirport: 'Champaign Airport (CMI) (5miles) ',
           walkScore: ' 72.3/100',
-          imgURL: 'https://marketing.illinois.edu/wp-content/uploads/2021/09/wordmark-orange-background.png'
+          imgURL: 'https://marketing.illinois.edu/wp-content/uploads/2021/09/wordmark-orange-background.png',
+          notes: 'extremely bike friendly campus, great computer science program, low cost of living'
         },
         {
-          school: "Purdue University, West Lafayette",
+          school: "Purdue University",
           tuition: '$45,954/year',
           location: 'West Lafayette, Indiana',
           ranking: 'Top 50',
@@ -100,7 +102,8 @@ function App() {
           costOfLiving: '$15,276',
           nearestAirport: 'Indianapolis Airport (IND) (59.7 miles)',
           walkScore: '51/100',
-          imgURL: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Purdue_Boilermakers_logo.svg/1024px-Purdue_Boilermakers_logo.svg.png'
+          imgURL: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Purdue_Boilermakers_logo.svg/1024px-Purdue_Boilermakers_logo.svg.png',
+          notes: 'moderate cost of lving, cradle of astronauts, great college atmosphere'
         }
         // Add more result objects as needed
       ]
