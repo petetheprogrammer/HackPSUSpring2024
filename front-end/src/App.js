@@ -15,7 +15,8 @@ import Accordion from '@mui/material/Accordion';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import AccordionSummary from '@mui/material/AccordionSummary';
 // import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-
+import FormControlLabel from '@mui/material/FormControlLabel';
+import Checkbox from '@mui/material/Checkbox';
 
 function App() {
   const [step, setStep] = useState(1);
@@ -169,7 +170,9 @@ function App() {
                     onChange={handleChange}
                     name='major'
                   >
-                    {majors.map((major, index) => <MenuItem value={major} onChange={handleMajorChange}>{major}</MenuItem>)}
+                    {majors.map((major, index) => (
+                      <MenuItem value={major} onChange={handleMajorChange}>{major}</MenuItem>
+                    ))}
                   </Select>
                 </FormControl>
               </article>
@@ -177,7 +180,7 @@ function App() {
             {step === 2 && (
               <article>
                 <h2>What are your school grades, in your country?</h2>
-                <FormControl>
+                <FormControl sx={{ minWidth: 120 }}>
                   <InputLabel id="demo-simple-select-label">Country</InputLabel>
                   <Select
                     labelId="demo-simple-select-label"
@@ -201,7 +204,7 @@ function App() {
             {step === 3 && (
               <article>
                 <h2>What is your budget for tuition, per year?</h2>
-                <FormControl>
+                <FormControl sx={{ minWidth: 120 }}>
                   <InputLabel id="demo-simple-select-label">Currency</InputLabel>
                   <Select
                     labelId="demo-simple-select-label"
@@ -225,59 +228,59 @@ function App() {
             {step === 4 && (
               <article>
                 <h2>What traits of a location are important to you?</h2>
-                <label>
-                  <input type="checkbox" name="safety" checked={formData.safety} onChange={handleChange} />
-                  Safety
-                </label>
-                <label>
-                  <input type="checkbox" name="transit" checked={formData.transit} onChange={handleChange} />
-                  Transit Accessible
-                </label>
-                <label>
-                  <input type="checkbox" name="minorityFriendly" checked={formData.minorityFriendly} onChange={handleChange} />
-                  Minority Friendly
-                </label>
+                <FormControlLabel
+                  control={<Checkbox name="safety" checked={formData.safety} onChange={handleChange} />}
+                  label="Safety"
+                />
+                <FormControlLabel
+                  control={<Checkbox name="transit" checked={formData.transit} onChange={handleChange} />}
+                  label="Transit Accessible"
+                />
+                <FormControlLabel
+                  control={<Checkbox name="minorityFriendly" checked={formData.minorityFriendly} onChange={handleChange} />}
+                  label="Minority Friendly"
+                />
                 {formData.safety && (
                   <div>
                     <h3>What safety risks do you want to avoid?</h3>
-                    <label>
-                      <input type="checkbox" name="violentCrime" checked={formData.violentCrime} onChange={handleChange} />
-                      Violent Crime
-                    </label>
-                    <label>
-                      <input type="checkbox" name="earthquakes" checked={formData.earthquakes} onChange={handleChange} />
-                      Earthquakes
-                    </label>
-                    <label>
-                      <input type="checkbox" name="tornadoes" checked={formData.tornadoes} onChange={handleChange} />
-                      Tornadoes
-                    </label>
+                    <FormControlLabel
+                      control={<Checkbox name="violentCrime" checked={formData.violentCrime} onChange={handleChange} />}
+                      label="Violent Crime"
+                    />
+                    <FormControlLabel
+                      control={<Checkbox name="earthquakes" checked={formData.earthquakes} onChange={handleChange} />}
+                      label="Earthquakes"
+                    />
+                    <FormControlLabel
+                      control={<Checkbox name="tornadoes" checked={formData.tornadoes} onChange={handleChange} />}
+                      label="Tornadoes"
+                    />
                   </div>
                 )}
                 {formData.transit && (
                   <div>
-                    <h3>What type of transit?</h3>
+                    <h3>What type of transit will you need?</h3>
                     <div className='too-long'>
-                      <label>
-                        <input type="checkbox" name="personalVehicle" checked={formData.personalVehicle} onChange={handleChange} />
-                        Personal Vehicle
-                      </label>
-                      <label>
-                        <input type="checkbox" name="metropolitanSubway" checked={formData.metropolitanSubway} onChange={handleChange} />
-                        Metropolitan Subway or Light Rail
-                      </label>
-                      <label>
-                        <input type="checkbox" name="metropolitanBus" checked={formData.metropolitanBus} onChange={handleChange} />
-                        Metropolitan Bus
-                      </label>
-                      <label>
-                        <input type="checkbox" name="regionalTrain" checked={formData.regionalTrain} onChange={handleChange} />
-                        Regional Train
-                      </label>
-                      <label>
-                        <input type="checkbox" name="regionalBus" checked={formData.regionalBus} onChange={handleChange} />
-                        Regional Bus
-                      </label>
+                      <FormControlLabel
+                        control={<Checkbox name="personalVehicle" checked={formData.personalVehicle} onChange={handleChange} />}
+                        label="Personal Vehicle"
+                      />
+                      <FormControlLabel
+                        control={<Checkbox name="metropolitanSubway" checked={formData.metropolitanSubway} onChange={handleChange} />}
+                        label="Metropolitan Subway or Light Rail"
+                      />
+                      <FormControlLabel
+                        control={<Checkbox name="metropolitanBus" checked={formData.metropolitanBus} onChange={handleChange} />}
+                        label="Metropolitan Bus"
+                      />
+                      <FormControlLabel
+                        control={<Checkbox name="regionalTrain" checked={formData.regionalTrain} onChange={handleChange} />}
+                        label="Regional Train"
+                      />
+                      <FormControlLabel
+                        control={<Checkbox name="regionalBus" checked={formData.regionalBus} onChange={handleChange} />}
+                        label="Regional Bus"
+                      />
                     </div>
                   </div>
                 )}
@@ -285,18 +288,18 @@ function App() {
                   <div>
                     <h3>How do you measure minority friendliness?</h3>
                     <div className='too-long'>
-                      <label>
-                        <input type="checkbox" name="racialDiversity" checked={formData.racialDiversity} onChange={handleChange} />
-                        Racial Diversity
-                      </label>
-                      <label>
-                        <input type="checkbox" name="internationalStudents" checked={formData.internationalStudents} onChange={handleChange} />
-                        Number of International Students
-                      </label>
-                      <label>
-                        <input type="checkbox" name="variedLanguages" checked={formData.variedLanguages} onChange={handleChange} />
-                        Varied Languages Spoken
-                      </label>
+                      <FormControlLabel
+                        control={<Checkbox name="racialDiversity" checked={formData.racialDiversity} onChange={handleChange} />}
+                        label="Racial Diversity"
+                      />
+                      <FormControlLabel
+                        control={<Checkbox name="internationalStudents" checked={formData.internationalStudents} onChange={handleChange} />}
+                        label="Number of International Students"
+                      />
+                      <FormControlLabel
+                        control={<Checkbox name="variedLanguages" checked={formData.variedLanguages} onChange={handleChange} />}
+                        label="Varied Languages Spoken"
+                      />
                     </div>
                   </div>
                 )}
@@ -314,35 +317,29 @@ function App() {
           <section className="results">
             <h1>Your Results</h1>
             <h3>Major: {formData.major}</h3>
-            {results.results.map((result, index) => (<Accordion>
-              <AccordionSummary
-                aria-controls="panel1-content"
-                id="panel1-header"
-              >
-                {result.school}
-              </AccordionSummary>
-              <AccordionDetails>
-                <ul>
-                  <li>Tuition: {result.tuition}</li>
-                  <li>Location: {result.location}</li>
-                  <li>Ranking: {result.ranking}</li>
-                  <li>Minimum GPA: {result.minimumGPA}</li>
-                  <li>Cost of Living: {result.costOfLiving}</li>
-                  <li>Nearest Airport: {result.nearestAirport}</li>
-                  <li>Walk Score: {result.walkScore}</li>
+            {results.results.map((result, index) => (
+              <Accordion>
+                <AccordionSummary
+                  aria-controls="panel1-content"
+                  id="panel1-header"
+                >
                   <img src={result.imgURL}></img>
-
-                  <li>Notes: {result.notes}</li>
-                </ul>
-              </AccordionDetails>
-            </Accordion>
+                  <h4>{result.school}</h4>
+                </AccordionSummary>
+                <AccordionDetails>
+                  <ul>
+                    <li>Tuition: {result.tuition}</li>
+                    <li>Location: {result.location}</li>
+                    <li>Ranking: {result.ranking}</li>
+                    <li>Minimum GPA: {result.minimumGPA}</li>
+                    <li>Cost of Living: {result.costOfLiving}</li>
+                    <li>Nearest Airport: {result.nearestAirport}</li>
+                    <li>Walk Score: {result.walkScore}</li>
+                    <li className='italics'>What the locals say: {result.notes}</li>
+                  </ul>
+                </AccordionDetails>
+              </Accordion>
             ))}
-
-            {/* <div key={index} className="result-section">
-                <h3>Pennsylvania State University </h3>
-
-              </div> */}
-
           </section>
         )}
       </div>
