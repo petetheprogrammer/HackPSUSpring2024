@@ -1,38 +1,67 @@
-.App {
-  text-align: center;
+li {
+  list-style-type: none;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: #ffffff; /* Background color */
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  /* flex-direction: column; */
+  /* justify-content: center; */
+  /* align-items: center; */
+  min-height: 100vh; /* Ensure full viewport height */
 }
 
-.App-link {
-  color: #61dafb;
+.header {
+  margin-left: 10vw; /* Left-aligned with 10% vw margin */
+  color: #003f87; /* Primary color from logo */
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.footer {
+  width: 100%;
+  background-color: #0c2340; /* Secondary color from logo */
+  color: #ffffff; /* Footer text color */
+  text-align: center;
+  font-size: 0.8rem; /* Small text size */
+  padding: 0.5rem 0; /* Padding for footer content */
+  position: absolute;
+  bottom: 0;
+  width: 100%;
 }
+
+.form-container {
+  margin-top: 2rem; /* Adjust as needed */
+  padding: 0 1rem;
+}
+
+.results {
+  padding: 0 1rem;
+}
+
+.result-section {
+  margin-bottom: 1rem; /* Adjust as needed */
+  border: 1px solid #ccc; /* Border color */
+  border-radius: 0.5rem;
+  padding: 1rem;
+}
+
+.result-section h3 {
+  margin-top: 0;
+}
+
+button {
+  background-color: #003f87; /* Green color from logo */
+  color: #ffffff; /* Text color for buttons */
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 0.25rem;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #002b5a; /* Darker shade of green on hover */
+}
+
+/* Add more specific styling as needed */
