@@ -14,15 +14,6 @@ function App() {
   const [results, setResults] = useState(null);
 
   const majors = ['Biology', 'Computer Science', 'Mechanical Engineering'];
-  const locations = [
-    'Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California', 'Colorado', 'Connecticut', 'Delaware',
-    'Florida', 'Georgia', 'Hawaii', 'Idaho', 'Illinois', 'Indiana', 'Iowa', 'Kansas', 'Kentucky',
-    'Louisiana', 'Maine', 'Maryland', 'Massachusetts', 'Michigan', 'Minnesota', 'Mississippi', 'Missouri',
-    'Montana', 'Nebraska', 'Nevada', 'New Hampshire', 'New Jersey', 'New Mexico', 'New York',
-    'North Carolina', 'North Dakota', 'Ohio', 'Oklahoma', 'Oregon', 'Pennsylvania', 'Rhode Island',
-    'South Carolina', 'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont', 'Virginia', 'Washington',
-    'West Virginia', 'Wisconsin', 'Wyoming'
-  ];
 
   const handleNext = () => {
     setStep(step + 1);
@@ -56,6 +47,24 @@ function App() {
           nearestAirport: 'Example Airport',
           walkScore: '75'
         },
+        {
+          tuition: '$25,000',
+          location: 'Another City, Another State',
+          ranking: 'Top 100',
+          minimumGPA: '3.0',
+          costOfLiving: '$40,000',
+          nearestAirport: 'Another Airport',
+          walkScore: '80'
+        },
+        {
+          tuition: '$35,000',
+          location: 'Yet Another City, Yet Another State',
+          ranking: 'Top 200',
+          minimumGPA: '2.5',
+          costOfLiving: '$50,000',
+          nearestAirport: 'Yet Another Airport',
+          walkScore: '70'
+        }
         // Add more result objects as needed
       ]
     };
