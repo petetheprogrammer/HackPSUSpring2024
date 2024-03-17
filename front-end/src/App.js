@@ -146,8 +146,8 @@ function App() {
   return (
     <div className="App">
       <header className='header'>
-        <h1>Placeholder Team Name</h1>
-        <p>Anon(Jeff), Kelly, Mykola, Pete, and Sai for HackPSU 2024</p>
+        <h1>007</h1>
+        <p>No time to code</p>
       </header>
 
       <div className="form-container">
@@ -161,9 +161,10 @@ function App() {
                   <Select
                     labelId="demo-simple-select-label"
                     id="demo-simple-select"
-                    // value={formData.major}
+                    value={formData.major}
                     label="Major"
                     onChange={handleChange}
+                    name='major'
                   >
                     {majors.map((major, index) => <MenuItem value={major} onChange={handleMajorChange}>{major}</MenuItem>)}
                   </Select>
@@ -172,7 +173,7 @@ function App() {
             )}
             {step === 2 && (
               <article>
-                <h2>What are your school grades?</h2>
+                <h2>What are your school grades, in your country?</h2>
                 <FormControl>
                   <InputLabel id="demo-simple-select-label">Country</InputLabel>
                   <Select
@@ -182,6 +183,7 @@ function App() {
                     name='country'
                     onChange={handleChange}
                   >
+                    <MenuItem value="" onChange={handleCurrencyChange}>Please choose...</MenuItem>
                     <MenuItem value="Canada" onChange={handleCountryChange}>Canada</MenuItem>
                     <MenuItem value="India" onChange={handleCountryChange}>India</MenuItem>
                     <MenuItem value="Thailand" onChange={handleCountryChange}>Thailand</MenuItem>
@@ -195,7 +197,7 @@ function App() {
             )}
             {step === 3 && (
               <article>
-                <h2>Tuition budget</h2>
+                <h2>What is your budget for tuition, per year?</h2>
                 <FormControl>
                   <InputLabel id="demo-simple-select-label">Currency</InputLabel>
                   <Select
@@ -303,26 +305,21 @@ function App() {
                 {step < 4 && <Button onClick={handleNext}>Next</Button>}
                 {step === 4 && <Button type='submit' onClick={handleSubmit}>Submit</Button>}
               </ButtonGroup>
-
             </article>
           </form>
         ) : (
           <section className="results">
             <h1>Your Results</h1>
-            <h2>Major: {results.major}</h2>
+            <h3>Major: {formData.major}</h3>
             {results.results.map((result, index) => (<Accordion>
               <AccordionSummary
-                // expandIcon={<ExpandMoreIcon />}
                 aria-controls="panel1-content"
                 id="panel1-header"
               >
-                {/* penn state */}
-                {console.log("a string", result.school)}
                 {result.school}
               </AccordionSummary>
               <AccordionDetails>
                 <ul>
-                  
                   <li>Tuition: {result.tuition}</li>
                   <li>Location: {result.location}</li>
                   <li>Ranking: {result.ranking}</li>
