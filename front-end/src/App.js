@@ -254,7 +254,7 @@ function App() {
         )}
       </div>
       <footer className='footer'>
-        <p>Jeff, Kelly, Mykola, Pete, and Sai for HackPSU 2024</p>
+        <p>Anon(Jeff), Kelly, Mykola, Pete, and Sai for HackPSU 2024</p>
       </footer>
     </div>
   );
