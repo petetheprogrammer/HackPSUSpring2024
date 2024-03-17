@@ -228,7 +228,7 @@ function App() {
             <h2>Major: {results.major}</h2>
             {results.results.map((result, index) => (
               <div key={index} className="result-section">
-                <h3>Collapsible Section {index + 1}</h3>
+                <h3>Pennsylvania State University {index + 1}</h3>
                 <ul>
                   <li>Tuition: {result.tuition}</li>
                   <li>Location: {result.location}</li>
