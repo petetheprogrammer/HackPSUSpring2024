@@ -18,6 +18,7 @@ body {
 
 .header {
   text-align: center; /* Left-aligned with 10% vw margin */
+  margin-left: 40vw;
 }
 
 .footer {
@@ -34,6 +35,7 @@ body {
 .form-container {
   margin-top: 2rem; /* Adjust as needed */
   padding: 0 1rem;
+  margin-left: 30vw;
 }
 
 .results {
@@ -45,10 +47,12 @@ body {
   border: 1px solid #ccc; /* Border color */
   border-radius: 0.5rem;
   padding: 1rem;
+  
 }
 
 .result-section h3 {
   margin-top: 0;
+
 }
 
 button {

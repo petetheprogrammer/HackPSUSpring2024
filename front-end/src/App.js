@@ -29,7 +29,7 @@ function App() {
   const [submitted, setSubmitted] = useState(false);
   const [results, setResults] = useState(null);
 
-  const majors = ['Biology', 'Computer Science', 'Mechanical Engineering'];
+  const majors = ['Biology', 'Computer Science', 'Mechanical Engineering', 'Mathematics','Physics', 'Electrical Engineering'];
   const [major, setMajor] = useState('');
 
   const handleNext = () => {
@@ -60,35 +60,31 @@ function App() {
       major: formData.major,
       results: [
         {
-          school: 'Pennsylvania State University',
-          tuition: '$30,000',
+          tuition: '$30,000/year',
           location: 'State College, Pennsylvania',
           ranking: 'Top 50',
-          minimumGPA: '3.5',
+          averageGPA: '3.5',
           costOfLiving: '$45,000',
-          nearestAirport: 'State College Airport (SCE)',
-          walkScore: '75',
-          notes: "bustling university in very rural area; your cell phone coverage may not be guaranteed if driving in"
+          nearestAirport: 'State College Airport (SCE) (5 miles)',
+          walkScore: '75/100'
         },
         {
-          school: "fdhajkl",
-          tuition: '$25,000',
-          location: 'Another City, Another State',
-          ranking: 'Top 100',
-          minimumGPA: '3.0',
-          costOfLiving: '$40,000',
-          nearestAirport: 'Another Airport',
-          walkScore: '80'
+          tuition: '$47,860/year',
+          location: 'Urbana, IL',
+          ranking: 'Top 50',
+          AverageGPA: '3.7-4.0',
+          costOfLiving: '$11,978',
+          nearestAirport: 'Champaign Airport (CMI) (5miles) ',
+          walkScore: ' 72.3/100'
         },
         {
-          school: "fdhajkl",
-          tuition: '$35,000',
-          location: 'Yet Another City, Yet Another State',
-          ranking: 'Top 200',
-          minimumGPA: '2.5',
-          costOfLiving: '$50,000',
-          nearestAirport: 'Yet Another Airport',
-          walkScore: '70'
+          tuition: '$45,954/year',
+          location: 'West Lafayette, Indiana',
+          ranking: 'Top 50',
+          averageGPA: '3.74',
+          costOfLiving: '$15,276',
+          nearestAirport: 'Indianapolis Airport (IND) (59.7 miles)',
+          walkScore: '51/100'
         }
         // Add more result objects as needed
       ]
@@ -130,6 +126,7 @@ function App() {
       <header className='header'>
         <h1>Placeholder Team Name</h1>
       </header>
+
       <div className="form-container">
         {!submitted ? (
           <form onSubmit={handleSubmit}>
@@ -308,7 +305,7 @@ function App() {
         )}
       </div>
       <footer className='footer'>
-        <p>Jeff, Kelly, Mykola, Pete, and Sai for HackPSU 2024</p>
+        <p>Anon(Jeff), Kelly, Mykola, Pete, and Sai for HackPSU 2024</p>
       </footer>
     </div>
   );
