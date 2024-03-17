@@ -105,6 +105,7 @@ function App() {
       <header className='header'>
         <h1>Placeholder Team Name</h1>
       </header>
+
       <div className="form-container">
         {!submitted ? (
           <form onSubmit={handleSubmit}>
@@ -246,14 +247,17 @@ function App() {
                   <li>Cost of Living: {result.costOfLiving}</li>
                   <li>Nearest Airport: {result.nearestAirport}</li>
                   <li>Walk Score: {result.walkScore}</li>
+                  <img src="https://brand.psu.edu/images/backgrounds/veritcal-1-mark_registered.png"></img>
+                  
                 </ul>
+                
               </div>
             ))}
           </section>
         )}
       </div>
       <footer className='footer'>
-        <p>Jeff, Kelly, Mykola, Pete, and Sai for HackPSU 2024</p>
+        <p>Anon(Jeff), Kelly, Mykola, Pete, and Sai for HackPSU 2024</p>
       </footer>
     </div>
   );
